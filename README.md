@@ -11,8 +11,8 @@ squirreltは,lsコマンドを再開発したものである
 squirrelt [OPTIONS] [PATH]
 
 ## Opitons
---sort-size : Sort and display by size
+--sort-size : ファイルサイズに基づいてソートし、表示
 
--t : Displayed in order of most recent update date
+-t : 最新の更新日順に表示
 
--a : Show hidden files as well
+-a : 隠しファイルも表示
