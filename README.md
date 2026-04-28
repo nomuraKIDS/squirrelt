@@ -1,6 +1,7 @@
 # squirrelt
 
 バッジ一覧
+[![Coverage Status](https://coveralls.io/repos/github/nomuraKIDS/squirrelt/badge.svg?branch=main)](https://coveralls.io/github/nomuraKIDS/squirrelt?branch=main)
 
 lsの再開発,ファイルの種類によって色を変え，ソート順をサイズ，最終更新日，ファイル名などで選択できる
 
