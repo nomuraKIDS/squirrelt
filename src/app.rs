@@ -56,7 +56,7 @@ fn read_entries(path: &Path) -> io::Result<Vec<Entry>> {
     Ok(entries)
 }
 
-fn sort_entries(entries: &mut Vec<Entry>, config: &Config) {
+fn sort_entries(entries: &mut [Entry], config: &Config) {
     if config.sort_time {
         entries.sort_by(|a, b| {
             let a_time = a.metadata.modified().ok();
