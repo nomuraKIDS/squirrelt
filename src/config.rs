@@ -2,6 +2,7 @@ use std::env;
 use std::ffi::OsString;
 use std::path::PathBuf;
 
+#[derive(Debug)]
 pub struct Config {
     pub show_all: bool,
     pub sort_size: bool,
@@ -46,5 +47,44 @@ impl Config {
             sort_time,
             path,
         })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::ffi::OsString;
+    use std::env;
+
+    #[test]
+    fn from_args_parses_flags_and_path() {
+        let args = vec![
+            OsString::from("squirrelt"),
+            OsString::from("-a"),
+            OsString::from("--sort-size"),
+            OsString::from("-t"),
+            OsString::from("tests"),
+        ];
+
+        let config = Config::from_args(args).unwrap();
+
+        assert!(config.show_all);
+        assert!(config.sort_size);
+        assert!(config.sort_time);
+        assert_eq!(config.path, std::path::PathBuf::from("tests"));
+    }
+
+    #[test]
+    fn from_args_uses_current_dir_when_path_is_missing() {
+        let args = vec![OsString::from("squirrelt")];
+        let config = Config::from_args(args).unwrap();
+        assert_eq!(config.path, env::current_dir().unwrap());
+    }
+
+    #[test]
+    fn from_args_returns_error_for_unknown_option() {
+        let args = vec![OsString::from("squirrelt"), OsString::from("--bad")];
+        let err = Config::from_args(args).unwrap_err();
+        assert_eq!(err, "unknown option: --bad");
     }
 }

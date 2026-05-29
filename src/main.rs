@@ -1,9 +1,4 @@
-mod app;
-mod config;
-mod entry;
-
-use crate::config::Config;
-use crate::app::run;
+use squirrelt::{run, Config};
 use std::env;
 
 fn main() {

@@ -30,11 +30,11 @@ jobs:
         run: |
           cargo install cargo-llvm-cov
           rustup component add llvm-tools-preview
-          cargo llvm-cov --lcov --output-path coverage.lcov
+          cargo llvm-cov --lcov --output-path coverage.lcov --tests
 
       - name: coveralls
         uses: coverallsapp/github-action@v2
         with:
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: coverage.lcov
         if: matrix.os == 'ubuntu-latest'
