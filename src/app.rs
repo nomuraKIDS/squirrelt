@@ -64,7 +64,7 @@ fn sort_entries(entries: &mut [Entry], config: &Config) {
             b_time.cmp(&a_time)
         });
     } else if config.sort_size {
-        entries.sort_by(|a, b| b.metadata.len().cmp(&a.metadata.len()));
+        entries.sort_by_key(|entry| std::cmp::Reverse(entry.metadata.len()));
     } else {
         entries.sort_by(|a, b| a.name.cmp(&b.name));
     }
