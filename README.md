@@ -1,6 +1,6 @@
 # squirrelt
 
-
+[![Build Status](https://github.com/nomuraKIDS/squirrelt/actions/workflows/build.yaml/badge.svg)](https://github.com/nomuraKIDS/squirrelt/actions/workflows/build.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/nomuraKIDS/squirrelt/badge.svg?branch=main)](https://coveralls.io/github/nomuraKIDS/squirrelt?branch=main)
 
 lsの再開発,拡張子の種類によって色を変え，ソート順をサイズ，最終更新日，ファイル名などで選択できる
