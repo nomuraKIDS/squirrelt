@@ -1,0 +1,59 @@
+baseURL: "https://nomuraKIDS.github.io/squirrelt/"
+title: "squirrelt Docs"
+copyright: "© 2026 squirrelt Contributors"
+theme: "PaperMod"
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+outputFormats:
+  llms:
+    mediaType: "text/plain"
+    baseName: "llms"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - llms
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Home
+          url: /
+          weight: 1
+        - name: Docs
+          url: /
+          weight: 2
+        - name: Search
+          url: search/
+          weight: 3
+        - name: Tags
+          url: tags/
+          weight: 4
+        - name: GitHub
+          url: "https://github.com/nomuraKIDS/squirrelt"
+          weight: 5

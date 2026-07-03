@@ -1,0 +1,52 @@
+params:
+  env: production
+  description: "squirrelt documentation for the project and API reference."
+  author: "nomuraKIDS"
+  defaultTheme: auto
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  images:
+    - "images/papermod-cover.png"
+
+  profileMode:
+    enabled: false
+    title: squirrelt
+    imageUrl: "#"
+    imageTitle: "squirrelt"
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
+
+  homeInfoParams:
+    Title: "squirrelt Docs"
+    Content: |
+      Documentation for the squirrelt project.
+      - Fast Hugo docs powered by PaperMod.
+      - Search, multilingual support, and SEO-ready pages.
+      - Built for Rust and software engineering experiments.
+
+  socialIcons:
+    - name: github
+      title: "View Source on GitHub"
+      url: "https://github.com/nomuraKIDS/squirrelt"
+    - name: X
+      title: "Follow on X"
+      url: "https://x.com/nomuraKIDS"
+
+  editPost:
+    URL: "https://github.com/nomuraKIDS/squirrelt/tree/main/docs/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+  assets:
+    disableHLJS: true

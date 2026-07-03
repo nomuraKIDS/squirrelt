@@ -53,3 +53,8 @@ Cargo.lock
 # End of https://www.toptal.com/developers/gitignore/api/macos,rust
 # Ignore generated coverage reports
 coverage.lcov
+
+# Hugo docs output
+docs/public/
+# Hugo build lock
+docs/.hugo_build.lock

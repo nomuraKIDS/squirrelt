@@ -1,0 +1,4 @@
+baseURL = "https://<username>.github.io/<repo>/"
+title = "My Docs"
+theme = "PaperMod"
+
