@@ -16,10 +16,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
+      - name: Checkout
         uses: actions/checkout@v6
         with:
-          ref: main
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -30,8 +30,22 @@ jobs:
       - name: Build Hugo site
         run: cd docs && hugo --gc --minify
 
+      - name: List generated files
+        run: ls -la docs/public/ | head -20
+
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/public
+        run: |
+          mkdir -p gh-pages-deploy
+          cp -r docs/public/* gh-pages-deploy/
+          cd gh-pages-deploy
+          
+          # Initialize or use existing git config
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          
+          # Create or update gh-pages orphan branch
+          git init
+          git add -A
+          git commit -m "Deploy from main $(date +%s)" || echo "No changes"
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git master:gh-pages
+
