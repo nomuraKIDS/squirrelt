@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.163.3"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>squirrelt Docs</title>
+
+<meta name="description" content="ファイル一覧を見やすく表示するコマンドラインツール">
+<meta name="author" content="nomuraKIDS">
+<link rel="canonical" href="https://nomuraKIDS.github.io/squirrelt/">
+<link crossorigin="anonymous" href="/squirrelt/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nomuraKIDS.github.io/squirrelt/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nomuraKIDS.github.io/squirrelt/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nomuraKIDS.github.io/squirrelt/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nomuraKIDS.github.io/squirrelt/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nomuraKIDS.github.io/squirrelt/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://nomuraKIDS.github.io/squirrelt/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://nomuraKIDS.github.io/squirrelt/index.json" title="json">
+<link rel="alternate" hreflang="en" href="https://nomuraKIDS.github.io/squirrelt/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://nomuraKIDS.github.io/squirrelt/">
+  <meta property="og:site_name" content="squirrelt Docs">
+  <meta property="og:title" content="squirrelt">
+  <meta property="og:description" content="ファイル一覧を見やすく表示するコマンドラインツール">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://nomuraKIDS.github.io/squirrelt/images/papermod-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nomuraKIDS.github.io/squirrelt/images/papermod-cover.png">
+  <meta name="twitter:title" content="squirrelt">
+  <meta name="twitter:description" content="ファイル一覧を見やすく表示するコマンドラインツール">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "squirrelt Docs",
+  "url": "https://nomuraKIDS.github.io/squirrelt/",
+  "description": "squirrelt documentation for the project and API reference.",
+  "logo": "https://nomuraKIDS.github.io/squirrelt/favicon.ico",
+  "sameAs": [
+      "https://github.com/nomuraKIDS/squirrelt", "https://x.com/nomuraKIDS"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://nomuraKIDS.github.io/squirrelt/" accesskey="h" title="squirrelt Docs (Alt + H)">squirrelt Docs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://nomuraKIDS.github.io/squirrelt/" title="Home">
+                    <span class="active">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nomuraKIDS.github.io/squirrelt/" title="Docs">
+                    <span class="active">Docs</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nomuraKIDS.github.io/squirrelt/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nomuraKIDS.github.io/squirrelt/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/nomuraKIDS/squirrelt" title="GitHub">
+                    <span>GitHub</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<div class="post-content md-content"><h1 id="squirrelt">squirrelt<a hidden class="anchor" aria-hidden="true" href="#squirrelt">#</a></h1>
+<p>squirrelt は、<code>ls</code> コマンドをより使いやすくしたファイル一覧表示ツールです。ファイルの拡張子ごとに色を変えて、目的に応じた並べ替えや隠しファイルの表示を簡単に切り替えられます。</p>
+<h2 id="主な特徴">主な特徴<a hidden class="anchor" aria-hidden="true" href="#主な特徴">#</a></h2>
+<ul>
+<li>拡張子ごとに色分けして表示</li>
+<li>ファイルサイズ順、更新日時順、名前順でソート</li>
+<li><code>-a</code> オプションで隠しファイルも表示</li>
+<li>カレントディレクトリや指定したパスの内容を一覧表示</li>
+</ul>
+<h2 id="使い方">使い方<a hidden class="anchor" aria-hidden="true" href="#使い方">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">squirrelt <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>PATH<span class="o">]</span>
+</span></span></code></pre></div><p><code>PATH</code> を指定しない場合は、現在のディレクトリを表示します。</p>
+<h2 id="オプション">オプション<a hidden class="anchor" aria-hidden="true" href="#オプション">#</a></h2>
+<ul>
+<li><code>--sort-size</code> : ファイルサイズの順に並べ替えて表示します。</li>
+<li><code>-t</code> : ファイルの更新日時が新しい順に表示します。</li>
+<li><code>-a</code> : 隠しファイルも含めて表示します。</li>
+</ul>
+<h2 id="こんな人におすすめ">こんな人におすすめ<a hidden class="anchor" aria-hidden="true" href="#こんな人におすすめ">#</a></h2>
+<ul>
+<li><code>ls</code> の表示をもっと見やすくしたい人</li>
+<li>ファイル一覧をサイズや更新日で並べ替えたい人</li>
+<li>隠しファイルを手早く確認したい人</li>
+</ul>
+<h2 id="例">例<a hidden class="anchor" aria-hidden="true" href="#例">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">squirrelt --sort-size
+</span></span><span class="line"><span class="cl">squirrelt -t /path/to/directory
+</span></span><span class="line"><span class="cl">squirrelt -a
+</span></span></code></pre></div>
+
+</div>
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>squirrelt Docs</h1>
+    </header>
+    <div class="entry-content md-content">
+        
+        <p>Documentation for the squirrelt project.</p>
+<ul>
+<li>Fast Hugo docs powered by PaperMod.</li>
+<li>Search, multilingual support, and SEO-ready pages.</li>
+<li>Built for Rust and software engineering experiments.</li>
+</ul>
+
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+    <a href="https://github.com/nomuraKIDS/squirrelt" target="_blank" rel="noopener noreferrer me"
+        title="View Source on GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="https://x.com/nomuraKIDS" target="_blank" rel="noopener noreferrer me"
+        title="Follow on X">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+    </path>
+</svg>
+    </a>
+</div>
+
+    </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© 2026 squirrelt Contributors</span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

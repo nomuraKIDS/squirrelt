@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://nomuraKIDS.github.io/squirrelt/sitemap.xml
