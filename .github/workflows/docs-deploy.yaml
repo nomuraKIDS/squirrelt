@@ -42,14 +42,14 @@ jobs:
 
       - name: Deploy to gh-pages
         run: |
-          # Clear old gh-pages content (but keep .git)
           cd gh-pages-repo
-          shopt -s dotglob
-          rm -rf !(. | .. | .git)
           
-          # Copy new content from docs/public (including hidden files)
+          # Remove all files except .git
+          find . -maxdepth 1 -not -name '.git' -type f -delete
+          find . -maxdepth 1 -not -name '.git' -type d -exec rm -rf {} + 2>/dev/null || true
+          
+          # Copy new content from docs/public
           cp -r ../docs/public/* .
-          cp -r ../docs/public/.* . 2>/dev/null || true
           
           # Configure git
           git config user.name "github-actions[bot]"
