@@ -42,18 +42,20 @@ jobs:
 
       - name: Deploy to gh-pages
         run: |
-          # Clear old gh-pages content
+          # Clear old gh-pages content (but keep .git)
           cd gh-pages-repo
-          git rm -rf . || true
+          shopt -s dotglob
+          rm -rf !(. | .. | .git)
           
-          # Copy new content from docs/public
+          # Copy new content from docs/public (including hidden files)
           cp -r ../docs/public/* .
+          cp -r ../docs/public/.* . 2>/dev/null || true
           
           # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           # Commit and push
-          git add .
+          git add -A
           git commit -m "Build docs from main $(date +%Y-%m-%d\ %H:%M:%S)" || echo "No changes to commit"
           git push origin gh-pages
