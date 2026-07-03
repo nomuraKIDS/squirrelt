@@ -1,0 +1,59 @@
+name: Deploy Hugo docs to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - ".github/workflows/docs-deploy.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: gh-pages-repo
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.146.0"
+          extended: true
+
+      - name: Build Hugo site
+        run: |
+          cd docs
+          hugo --gc --minify
+
+      - name: Deploy to gh-pages
+        run: |
+          # Clear old gh-pages content
+          cd gh-pages-repo
+          git rm -rf . || true
+          
+          # Copy new content from docs/public
+          cp -r ../docs/public/* .
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Commit and push
+          git add .
+          git commit -m "Build docs from main $(date +%Y-%m-%d\ %H:%M:%S)" || echo "No changes to commit"
+          git push origin gh-pages
