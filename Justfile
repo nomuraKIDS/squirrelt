@@ -2,7 +2,7 @@ git_revision := `git rev-parse --short HEAD`
 app_version := `awk -F'"' '/^\[package\]/{p=1} p && /^version *=/{print $2; exit}' Cargo.toml`
 build_date := `date -u +%Y-%m-%dT%H:%M:%SZ`
 container_runner := "docker"
-container_image := "ghcr.io/nomuraKIDS/squirrelt"
+container_image := "ghcr.io/nomurakids/squirrelt"
 
 # 手元の環境で確認するためのビルドタスク
 container-local:

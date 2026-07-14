@@ -149,7 +149,7 @@ jobs:
     # ※ publishジョブの後に実行されるように指定しています。
     # もし、まだ publish.yaml に publish ジョブを作っていない場合は、
     # この needs: publish の行は削除して利用してください。
-    needs: publish
+    needs: [publish,container_image]
     steps:
       - name: Setup just
         uses: extractions/setup-just@v4
