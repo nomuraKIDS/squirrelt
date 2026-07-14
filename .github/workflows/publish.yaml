@@ -141,7 +141,7 @@ jobs:
           # gh コマンドを使って、ドラフトを false にする（release が immutable であれば、これ以降変更できない）。
           gh release edit v${{ needs.publish.outputs.tag }} --draft=false
 
-container_image:
+  container_image:
     runs-on: ubuntu-latest
     permissions:
       contents: write
