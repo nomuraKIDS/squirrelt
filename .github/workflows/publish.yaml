@@ -140,3 +140,34 @@ jobs:
         run: |
           # gh コマンドを使って、ドラフトを false にする（release が immutable であれば、これ以降変更できない）。
           gh release edit v${{ needs.publish.outputs.tag }} --draft=false
+
+container_image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    # ※ publishジョブの後に実行されるように指定しています。
+    # もし、まだ publish.yaml に publish ジョブを作っていない場合は、
+    # この needs: publish の行は削除して利用してください。
+    needs: publish
+    steps:
+      - name: Setup just
+        uses: extractions/setup-just@v4
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Container
+        run: |
+          just container
