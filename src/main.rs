@@ -1,14 +1,17 @@
 use squirrelt::{run, Config};
-use std::env;
+use clap::Parser; // Config::parse() を使うために必要
+
+mod gencomp; 
 
 fn main() {
-    let config = match Config::from_args(env::args_os()) {
-        Ok(config) => config,
-        Err(err) => {
-            eprintln!("Error: {}", err);
-            std::process::exit(1);
-        }
-    };
+    // Config::from_args(...) の代わりに、clapの機能で引数をパースします
+    let config = Config::parse();
+
+    if config.completions {
+        gencomp::generate(std::path::Path::new("completions"));
+        println!("補完ファイルを completions/ フォルダに出力しました。");
+        return;
+    }
 
     if let Err(err) = run(config) {
         eprintln!("Error: {}", err);
