@@ -1,0 +1,5 @@
+complete -c squirrelt -s a -d '隠しファイルも表示'
+complete -c squirrelt -l sort-size -d 'ファイルサイズに基づいてソートし、表示'
+complete -c squirrelt -s t -d '最新の更新日順に表示'
+complete -c squirrelt -l completions -d 'generate completion files'
+complete -c squirrelt -s h -l help -d 'Print help'

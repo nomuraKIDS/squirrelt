@@ -1,0 +1,38 @@
+#compdef squirrelt
+
+autoload -U is-at-least
+
+_squirrelt() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" : \
+'-a[隠しファイルも表示]' \
+'--sort-size[ファイルサイズに基づいてソートし、表示]' \
+'-t[最新の更新日順に表示]' \
+'--completions[generate completion files]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'::path:_files' \
+&& ret=0
+}
+
+(( $+functions[_squirrelt_commands] )) ||
+_squirrelt_commands() {
+    local commands; commands=()
+    _describe -t commands 'squirrelt commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_squirrelt" ]; then
+    _squirrelt "$@"
+else
+    compdef _squirrelt squirrelt
+fi

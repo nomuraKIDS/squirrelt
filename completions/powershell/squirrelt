@@ -1,0 +1,36 @@
+
+using namespace System.Management.Automation
+using namespace System.Management.Automation.Language
+
+Register-ArgumentCompleter -Native -CommandName 'squirrelt' -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+
+    $commandElements = $commandAst.CommandElements
+    $command = @(
+        'squirrelt'
+        for ($i = 1; $i -lt $commandElements.Count; $i++) {
+            $element = $commandElements[$i]
+            if ($element -isnot [StringConstantExpressionAst] -or
+                $element.StringConstantType -ne [StringConstantType]::BareWord -or
+                $element.Value.StartsWith('-') -or
+                $element.Value -eq $wordToComplete) {
+                break
+        }
+        $element.Value
+    }) -join ';'
+
+    $completions = @(switch ($command) {
+        'squirrelt' {
+            [CompletionResult]::new('-a', '-a', [CompletionResultType]::ParameterName, '隠しファイルも表示')
+            [CompletionResult]::new('--sort-size', '--sort-size', [CompletionResultType]::ParameterName, 'ファイルサイズに基づいてソートし、表示')
+            [CompletionResult]::new('-t', '-t', [CompletionResultType]::ParameterName, '最新の更新日順に表示')
+            [CompletionResult]::new('--completions', '--completions', [CompletionResultType]::ParameterName, 'generate completion files')
+            [CompletionResult]::new('-h', '-h', [CompletionResultType]::ParameterName, 'Print help')
+            [CompletionResult]::new('--help', '--help', [CompletionResultType]::ParameterName, 'Print help')
+            break
+        }
+    })
+
+    $completions.Where{ $_.CompletionText -like "$wordToComplete*" } |
+        Sort-Object -Property ListItemText
+}
